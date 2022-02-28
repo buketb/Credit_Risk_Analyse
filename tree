@@ -1,0 +1,3 @@
+
+#Gain calcularion in a tree
+#Gain = gini_root - (prop(cases left leaf) * gini_left) - (prop(cases right leaf * gini_right))
