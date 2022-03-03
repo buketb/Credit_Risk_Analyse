@@ -1,5 +1,5 @@
 
-#Gain calcularion in a tree
+#Gain calculation in a tree
 #Gain = gini_root - (prop(cases left leaf) * gini_left) - (prop(cases right leaf * gini_right))
 
 # The Gini-measure of the root node is given below
