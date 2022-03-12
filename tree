@@ -17,3 +17,21 @@ gain <- gini_root - 446 / 500 * gini_ll - 54 / 500 * gini_rl
 # compare the gain-column in small_tree$splits with our computed gain, multiplied by 500, and assure they are the same
 small_tree$splits
 improve <- gain * 500
+
+
+to overcome the imbalance. A first option is either oversampling your underrepresented group (in this case, the defaults) or 
+#undersampling the overrepresented group (or non-defaults). Balancing the training set will have a positive effect on the 
+#accuracy, and generally lead to better results. Note that over- or undersampling should only be 
+#applied to the training set and not to the test set! 
+
+#A second option is changing the prior probabilities in the rpart() function. 
+#By default, the prior probabilities of default versus non-default are set equal to their proportions in the training set. 
+#By making the prior probabilities for default bigger, you kind of trick R into attaching more importance to defaults, 
+#leading to a better decision tree. 
+
+#As a third option, the rpart() function allows the specification of a loss matrix. 
+#In this loss matrix, different costs can be associated with the misclassification of a default as a non-default verses 
+#the misclassification of a non-default as a default. By increasing the misclassification cost of the former, again, more 
+#attention is drawn to the correct classification of defaults, improving the quality of the decision tree. As all three methods are 
+#intended to overcome the problem of class imbalance, validation is very important. Where under- or oversampling may work 
+#very well for some data sets, it might perform poorly for others, and the same could be true for the two other methods
