@@ -196,8 +196,7 @@ cutoff <- quantile(predictions_all_full, 0.8)
 cutoff
 
 
-
-
+pred_full_20 <-  ifelse(predictions_all_full > cutoff, 1,0)
 
 
 
