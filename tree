@@ -61,3 +61,14 @@ plot(tree_undersample,uniform=T, main="Tree")
 
 # Add labels to the decision tree
 text(tree_undersample)
+
+# Change the code below such that a tree is constructed with adjusted prior probabilities.
+tree_prior <- rpart(loan_status ~ ., method = "class",
+                    data = training_set, parms = list(prior = c(0.7, 0.3)),
+                    control = rpart.control(cp = 0.001))
+
+# Plot the decision tree
+plot(tree_prior, uniform = TRUE)
+
+# Add labels to the decision tree
+text(tree_prior)
