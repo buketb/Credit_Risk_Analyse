@@ -35,3 +35,29 @@ to overcome the imbalance. A first option is either oversampling your underrepre
 #attention is drawn to the correct classification of defaults, improving the quality of the decision tree. As all three methods are 
 #intended to overcome the problem of class imbalance, validation is very important. Where under- or oversampling may work 
 #very well for some data sets, it might perform poorly for others, and the same could be true for the two other methods
+
+
+
+#decision tree
+
+fit_default <- rpart(loan_status ~ ., method= "class", data = "training_set)
+
+plot(fit_default)
+
+
+
+#which is the complexity parameter, is the threshold value for a decrease in overall lack of fit for any split. 
+#If cp is not met, further splits will no longer be pursued. cp's default value is 0.01, but for complex problems, 
+#it is advised to relax cp
+
+
+#Include rpart.control to relax the complexity parameter to 0.001.
+tree_undersample <- rpart(loan_status ~ ., method = "class",
+                          data =  undersampled_training_set, 
+                          control=rpart.control(cp=0.001))
+
+# Plot the decision tree
+plot(tree_undersample,uniform=T, main="Tree")
+
+# Add labels to the decision tree
+text(tree_undersample)
