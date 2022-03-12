@@ -186,6 +186,17 @@ acc_prior <- sum(diag(confmat_prior)) / nrow(test_set)
 acc_loss_matrix <- sum(diag(confmat_loss_matrix)) / nrow(test_set)
 acc_weights <- sum(diag(confmat_weights)) / nrow(test_set)
 
+#finding the right cut-off
+
+log_model_full <-glm(loan_status ~., family="binomial", data =training_set)
+
+predictions_all_full <- predict(log_reg_model, newdata = test_set, type ="response")
+
+cutoff <- quantile(predictions_all_full, 0.8)
+cutoff
+
+
+
 
 
 
