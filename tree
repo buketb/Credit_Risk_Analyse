@@ -92,6 +92,17 @@ text(tree_loss_matrix)
 
 printcp(tree_undersample)
 
+plotcp(tree_undersample) 
+#this graph shows the minimum cross-validation error point as cp
+
+#prune the tree
+
+ptree_undersample <- prune(tree_undersample, cp= 0.00365)
+plot(ptree_undersample, uniform=T)
+text(ptree_undersample)
+
+
+
 
 
 
