@@ -199,7 +199,12 @@ cutoff
 pred_full_20 <-  ifelse(predictions_all_full > cutoff, 1,0)
 
 
+true_and_predval <- cbind(test_set$loan_status, pred_full_20)
+true_and_predval
 
+accepted_loans <- pred_and_trueval[pred_full_20 == 0,1]
+bad_rate <- sum(accepted_loans) /length(accepted_loans)
+bad_rate
 
 
 
