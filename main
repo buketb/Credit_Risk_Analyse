@@ -327,3 +327,5 @@ auc(test_set$loan_status, pred_5_remove_emp)
 # Plot the ROC-curve for the best model here
 plot(roc(test_set$loan_status,pred_4_remove_amnt))
 
+
+
